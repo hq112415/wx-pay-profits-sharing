@@ -134,7 +134,7 @@ public class ProfitsSharingServiceTest {
         subOrders.setOutTradeNo(DateFormatUtils.format(new Date(), "yyyyMMddHHmmss"));
         subOrders.setAttach("gabin");
         subOrders.setMchid(platformMchId);
-        subOrders.setSubMchid(getSubMchid());
+//        subOrders.setSubMchid(getSubMchid());
 
         CombineTransactionsAppRequest.SettleInfo settleInfo = new CombineTransactionsAppRequest.SettleInfo();
         settleInfo.setProfitSharing(true);
@@ -160,7 +160,7 @@ public class ProfitsSharingServiceTest {
         CombineTransactionsCloseRequest.SubOrders subOrders = new CombineTransactionsCloseRequest.SubOrders();
         subOrders.setMchid(profitsSharingService.getPlatformId().orElse(null));
         subOrders.setOutTradeNo("20200422123455");
-        subOrders.setSubMchid(getSubMchid());
+//        subOrders.setSubMchid(getSubMchid());
         request.setSubOrders(Collections.singletonList(subOrders));
         profitsSharingService.combineTransactionsClose(request);
     }
@@ -311,7 +311,7 @@ public class ProfitsSharingServiceTest {
     public void downloadTradeBill() {
         BillOfTradeRequest request = new BillOfTradeRequest();
         request.setBillDate("2020-04-22");
-        request.setSubMchid(getSubMchid());
+//        request.setSubMchid(getSubMchid());
         request.setBillType("ALL");
         request.setTarType("GZIP");
         profitsSharingService.downloadTradeBill(request).ifPresent(this::logger);

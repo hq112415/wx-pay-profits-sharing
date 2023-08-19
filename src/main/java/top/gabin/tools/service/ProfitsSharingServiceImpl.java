@@ -55,6 +55,7 @@ import top.gabin.tools.response.pay.combine.CombineTransactionsAppResponse;
 import top.gabin.tools.response.pay.combine.CombineTransactionsCloseResponse;
 import top.gabin.tools.response.pay.combine.CombineTransactionsJsResponse;
 import top.gabin.tools.response.pay.combine.CombineTransactionsStatusResponse;
+import top.gabin.tools.response.tool.BankingResponse;
 import top.gabin.tools.response.tool.ImageUploadResponse;
 import top.gabin.tools.utils.HttpUtils;
 import top.gabin.tools.utils.JsonUtils;
@@ -554,6 +555,13 @@ public class ProfitsSharingServiceImpl implements ProfitsSharingService {
             }
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<BankingResponse> getPersonalBankList(Integer offset, Integer limit) {
+        return get(BankingResponse.class,
+                String.format("https://api.mch.weixin.qq.com/v3/capital/capitallhh/banks/personal-banking?offset=%s&limit=%s",
+                        offset, limit));
     }
 
     private String getHeaderString(CloseableHttpResponse response, String name) {

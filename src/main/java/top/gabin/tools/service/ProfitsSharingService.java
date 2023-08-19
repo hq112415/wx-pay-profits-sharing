@@ -38,6 +38,7 @@ import top.gabin.tools.response.ecommerce.subsidies.SubsidiesCancelResponse;
 import top.gabin.tools.response.ecommerce.subsidies.SubsidiesCreateResponse;
 import top.gabin.tools.response.ecommerce.subsidies.SubsidiesRefundResponse;
 import top.gabin.tools.response.pay.combine.CombineTransactionsStatusResponse;
+import top.gabin.tools.response.tool.BankingResponse;
 import top.gabin.tools.response.tool.ImageUploadResponse;
 
 import java.io.File;
@@ -1019,4 +1020,10 @@ public interface ProfitsSharingService {
      * @return .
      */
     Optional<ImageUploadResponse> uploadImage(File file) throws Exception;
+
+    /**
+     * 查询支持个人业务的银行列表API
+     * https://pay.weixin.qq.com/wiki/doc/apiv3_partner/Offline/apis/chapter11_2_2.shtml
+     */
+    Optional<BankingResponse> getPersonalBankList(Integer offset, Integer limit);
 }

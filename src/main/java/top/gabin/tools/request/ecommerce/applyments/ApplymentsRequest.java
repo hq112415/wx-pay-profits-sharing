@@ -739,6 +739,15 @@ public class ApplymentsRequest {
 		@JsonProperty(value = "contact_email")
 		private String contactEmail;
 
+		@JsonProperty(value = "contact_id_doc_type")
+		private String contactIdDocType;
+
+		@JsonProperty(value = "contact_id_doc_copy")
+		private String contactIdDocCopy;
+
+		@JsonProperty(value = "contact_id_doc_copy_back")
+		private String contactIdDocCopyBack;
+
 	}
 
 	@EqualsAndHashCode
